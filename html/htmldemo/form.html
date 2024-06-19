@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head><title>form</title></head>
+<body>
+    <style>
+        table, th, td {
+          border:1px solid black;
+        }
+    </style>
+<form action="/action_page.php">
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname" value="">
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname" value="">
+  <br><br>
+</form> 
+<table style="width: 50%;">
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Number</th>
+    </tr>
+    <tr>
+      <td>asd</td>
+      <td>18</td>
+      <td>123456</td>
+    </tr>
+    <tr>
+      <td>qwe</td>
+      <td>12</td>
+      <td>654321</td>
+    </tr>
+</table>
+<p>Choose your favorite Web language:</p>
+<form>
+    <input type="radio" id="html" name="fav_language" value="HTML">
+    <label for="html">HTML</label><br>
+    <input type="radio" id="css" name="fav_language" value="CSS">
+    <label for="css">CSS</label><br>
+    <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+    <label for="javascript">JavaScript</label>
+  </form>
+  <p>Choose your vehicle:</p>
+  <form>
+    <input type="checkbox" id="vehicle" name="vehicle1" value="Bike">
+    <label for="vehicle1"> I have a bike</label><br>
+    <input type="checkbox" id="vehicle" name="vehicle2" value="Car">
+    <label for="vehicle2"> I have a car</label><br>
+    <input type="checkbox" id="vehicle" name="vehicle3" value="Boat">
+    <label for="vehicle3"> I have a boat</label>
+  </form>
+  <br /> <br /> <br />
+  <form>
+    <input type="submit" value="Submit">
+    <input type="button" value="Ok">
+  </form>
+</body>
+</html>
