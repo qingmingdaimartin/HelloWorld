@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Objects</h1>
+<p>Displaying a JavaScript object:</p>
+
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+
+<script>
+// Create an Object
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+// 1.Display Object
+document.getElementById("demo").innerHTML = person;
+
+// 2.Display Properties
+document.getElementById("demo1").innerHTML =
+person.name + "," + person.age + "," + person.city;
+
+// 3.Build a Text
+let text = "";
+    for (let x in person) {
+      text += person[x] + " ";
+    };
+// Display the Text
+ document.getElementById("demo2").innerHTML = text;
+
+ // 4.Create an Array
+const myArray = Object.values(person);
+// Display the Array
+document.getElementById("demo3").innerHTML = myArray;
+
+// 5.Display JSON
+document.getElementById("demo4").innerHTML = JSON.stringify(person);
+
+
+
+// 6 have some problem.
+const fruits = {Bananas:300, Oranges:200, Apples:500}; 
+let text1 = "";
+for (let [fruit, amount] of Object.entries(fruits)) {
+  text1 += fruit + ": " + amount + "<br>";
+   
+}
+
+document.getElementById("demo5").innerHTML = text1;
+</script>
+
+
+</body>
+</html>
