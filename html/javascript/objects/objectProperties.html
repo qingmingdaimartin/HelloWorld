@@ -1,0 +1,65 @@
+<!-- // Adding or changing an object property
+Object.defineProperty(object, property, descriptor)
+
+// Adding or changing object properties
+Object.defineProperties(object, descriptors)
+
+// Accessing a Property
+Object.getOwnPropertyDescriptor(object, property)
+
+// Accessing Properties
+Object.getOwnPropertyDescriptors(object)
+
+// Returns all properties as an array
+Object.getOwnPropertyNames(object)
+
+// Accessing the prototype
+Object.getPrototypeOf(object) -->
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Object</h1>
+<h2>The defineProperty() Method</h2>
+
+<p>This example adds property to object.</p>
+
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+
+<script>
+// Create an Object:
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  language: "EN"
+};
+
+// Add a Property
+Object.defineProperty(person, "year", {value:"2008"})
+// Change a Property
+Object.defineProperty(person, "language", {value:"NO"})
+// change read-only. if true can be changed.
+Object.defineProperty(person, "language", {enumerable:false});
+Object.defineProperty(person, "lastName", {writable:false});
+// Define a Getter
+Object.defineProperty(person, "fullName", {
+  get: function () {return this.firstName + " " + this.lastName;}
+});
+
+// Display the Property
+document.getElementById("demo").innerHTML = person.year;
+document.getElementById("demo1").innerHTML = person.language;
+document.getElementById("demo2").innerHTML = Object.getOwnPropertyNames(person);
+// .keys() only List enumerable object properties
+document.getElementById("demo3").innerHTML = Object.keys(person);
+// Display fullName
+document.getElementById("demo4").innerHTML = person.fullName;
+</script>
+
+</body>
+</html>
