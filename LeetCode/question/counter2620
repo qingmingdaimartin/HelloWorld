@@ -1,0 +1,28 @@
+/**
+ * @param {number} n
+ * @return {Function} counter
+ */
+var createCounter = function(n) {
+    
+    return function() {
+            return n++;
+        }     
+    };
+
+/** 
+ * const counter = createCounter(10)
+ * counter() // 10
+ * counter() // 11
+ * counter() // 12
+ */
+
+let n1 = 10;
+let calls1 = ["call", "call", "call"];
+let counter1 = createCounter(n1);
+let output1 = calls1.map(() => counter1());
+console.log(output1);
+let n2 = -2;
+let calls2 = ["call", "call", "call", "call", "call"];
+let counter2 = createCounter(n2);
+let output2 = calls2.map(() => counter2());
+console.log(output2);
