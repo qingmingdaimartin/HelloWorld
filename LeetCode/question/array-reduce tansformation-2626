@@ -1,0 +1,29 @@
+/**
+ * @param {number[]} nums
+ * @param {Function} fn
+ * @param {number} init
+ * @return {number}
+ */
+var reduce = function(nums, fn, init) {
+    let accumulator = init;
+    for (let i = 0; i < nums.length; i++) {
+        accumulator = fn(accumulator, nums[i]);
+    }
+    return accumulator;
+};
+
+/* //example1
+let nums = [1,2,3,4];
+let sum = function(accum, curr) {
+    return accum + curr;
+};
+let init = 0;
+console.log(reduce(nums, sum, init));  */
+
+//example 2
+let nums = [1,2,3,4];
+let sum = function(accum, curr) {
+    return accum + curr * curr;
+};
+let init = 100;
+console.log(reduce(nums, sum, init)); 
