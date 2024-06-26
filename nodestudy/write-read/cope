@@ -1,0 +1,25 @@
+const fs = require('fs');
+
+const process = require('process');
+// example1  
+/* //readFile
+let data = fs.readFileSync('write.txt');
+//write
+fs.writeFileSync('./nodestudy/write-read/date2.txt', data);
+// size
+console.log(process.memoryUsage()); */
+
+
+//example2 stream  more easy  only need 64KB  
+const rs = fs.createReadStream('write.txt');
+//write
+const ws = fs.createWriteStream('./nodestudy/write-read/date2.txt');
+// data events
+rs.on('data', chunk => {
+    ws.write(chunk);
+});
+// size
+rs.on('end', ()=>{
+    console.log(process.memoryUsage()); 
+})
+
