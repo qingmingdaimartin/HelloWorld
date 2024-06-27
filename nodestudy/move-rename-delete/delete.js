@@ -1,5 +1,6 @@
 const fs = require('fs');
 
+// unlike()
 fs.unlink('./nodestudy/write-read/date1.txt', err =>{
 
     if (err){
@@ -8,4 +9,13 @@ fs.unlink('./nodestudy/write-read/date1.txt', err =>{
     }
     console.log('ture');
 })
-nodestudy/write-read/date1.txt
+
+// rm()
+fs.rm('./nodestudy/write-read/date1.txt', err =>{
+
+    if (err){
+        console.log('false');
+        return;
+    }
+    console.log('ture');
+})
