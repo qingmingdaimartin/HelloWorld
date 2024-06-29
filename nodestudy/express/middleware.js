@@ -9,6 +9,11 @@ function recordMiddleware(req, res, next){
     next();
 }
 
+
+// set static resource
+// app.use(express.static(__dirname + '/pathname'));
+
+
 app.use(recordMiddleware);
 // route request
 app.get('/home', (req, res) => {
