@@ -2,7 +2,9 @@ const express = require('express');
 
 const app = express();
 
-app.get('/home', (rep, res) => {
+
+// route request
+/* app.get('/home', (rep, res) => {
     res.end('hello express');
 });
 
@@ -20,6 +22,12 @@ app.all('/test', (rep, res) => {
 
 app.all('*', (rep, res) => {
     res.end('404 not found');ç
+}); */
+
+// get route params
+app.get('/:id.html', (rep, res) => {
+    console.log(rep.params.id); 
+    res.end('detail');
 });
 
 app.listen(3000, () =>{
