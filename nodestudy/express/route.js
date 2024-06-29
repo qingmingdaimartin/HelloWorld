@@ -4,29 +4,29 @@ const app = express();
 
 
 // route request
-/* app.get('/home', (rep, res) => {
+/* app.get('/home', (req, res) => {
     res.end('hello express');
 });
 
-app.get('/', (rep, res) => {
+app.get('/', (req, res) => {
     res.end('home');
 });
 
-app.post('/login', (rep, res) => {
+app.post('/login', (req, res) => {
     res.end('login login');ç
 });
 
-app.all('/test', (rep, res) => {
+app.all('/test', (req, res) => {
     res.end('test test');ç
 });
 
-app.all('*', (rep, res) => {
+app.all('*', (req, res) => {
     res.end('404 not found');ç
 }); */
 
 // get route params
-app.get('/:id.html', (rep, res) => {
-    console.log(rep.params.id); 
+app.get('/:id.html', (req, res) => {
+    console.log(req.params.id); 
     res.end('detail');
 });
 
