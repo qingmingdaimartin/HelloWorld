@@ -1,0 +1,20 @@
+{
+  "accounts": [
+    {
+      "id": "1Nvq1sZ-x",
+      "title": "pay salary",
+      "time": "2024-06-30",
+      "type": "1",
+      "account": "3390",
+      "remarks": "very happy"
+    },
+    {
+      "id": "LzD383Tfu",
+      "title": "pay salary",
+      "time": "2024-06-30",
+      "type": "1",
+      "account": "3390",
+      "remarks": "very happy"
+    }
+  ]
+}
