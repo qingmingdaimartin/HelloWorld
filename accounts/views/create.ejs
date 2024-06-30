@@ -17,10 +17,11 @@
         <div class="col-xs-12 col-lg-8 col-lg-offset-2">
           <h2>Add record</h2>
           <hr />
-          <form>
+          <form method="post" action="/account">
             <div class="form-group">
               <label for="item">event</label>
               <input
+                name = "title"
                 type="text"
                 class="form-control"
                 id="item"
@@ -29,6 +30,7 @@
             <div class="form-group">
               <label for="time">time</label>
               <input
+                name = "time"
                 type="text"
                 class="form-control"
                 id="time"
@@ -36,14 +38,15 @@
             </div>
             <div class="form-group">
               <label for="type">type</label>
-              <select class="form-control" id="type">
-                <option value="">pay</option>
-                <option value="">income</option>
+              <select  name = "type"class="form-control" id="type">
+                <option value="-1">pay</option>
+                <option value="1">income</option>
               </select>
             </div>
             <div class="form-group">
               <label for="account">account</label>
               <input
+                name = "account"
                 type="text"
                 class="form-control"
                 id="account"
@@ -52,7 +55,7 @@
             
             <div class="form-group">
               <label for="remarks">remarks</label>
-              <textarea class="form-control" id="remarks"></textarea>
+              <textarea name = "remarks" class="form-control" id="remarks"></textarea>
             </div>
             <hr>
             <button type="submit" class="btn btn-primary btn-block">Add</button>
