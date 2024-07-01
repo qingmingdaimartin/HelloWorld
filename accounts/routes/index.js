@@ -11,7 +11,8 @@ const shortid = require('shortid');
 
 // accounts list
 router.get('/account', function(req, res, next) {
-  res.render('list');
+  let accounts = db.get('accounts').value();
+  res.render('list', {accounts: accounts});
 });
 
 // add record
@@ -22,7 +23,7 @@ router.get('/account/create', function(req, res, next) {
 router.post('/account', function(req, res) {
   let id = shortid.generate();
   db.get('accounts').unshift({id:id, ...req.body}).write();
-  res.send('add record');
+  res.render('success',{masg:'Add success', url:'/account'});
 });
 
 module.exports = router;
