@@ -29,41 +29,25 @@
           <hr />
           <div class="accounts">
             <% accounts.forEach(item => { %>
-            <div class="panel panel-danger">
+            <div class="panel <%= item.type === '-1' ? 'panel-danger' : 'panel-success' %>">
               <div class="panel-heading"> <%= item.time %></div>
               <div class="panel-body">
                 <div class="col-xs-6"><%= item.title %></div>
                 <div class="col-xs-2 text-center">
-                  <span class="label label-warning"><%= item.type === '-1' ? 'pay' : 'income' %></span>
+                  <span class="label <%= item.type === '-1' ? 'label-warning' : 'label-success' %>"><%= item.type === '-1' ? 'pay' : 'income' %></span>
                 </div>
                 <div class="col-xs-2 text-right">$<%= item.account %></div>
                 <div class="col-xs-2 text-right">
+                  <a href ="/account/<%= item.id %>">
                   <span
                     class="glyphicon glyphicon-remove"
                     aria-hidden="true"
                   ></span>
+                  </a>
                 </div>
               </div>
             </div>
-            <% }) %>
-
-            <div class="panel panel-success">
-              <div class="panel-heading">2024-06-30</div>
-              <div class="panel-body">
-                <div class="col-xs-6">Jun salary</div>
-                <div class="col-xs-2 text-center">
-                  <span class="label label-success">income</span>
-                </div>
-                <div class="col-xs-2 text-right">$3309</div>
-                <div class="col-xs-2 text-right">
-                  <span
-                    class="glyphicon glyphicon-remove"
-                    aria-hidden="true"
-                  ></span>
-                </div>
-              </div>
-            </div>
-            
+            <% }) %>          
           </div>
         </div>
       </div>

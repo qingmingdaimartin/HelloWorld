@@ -26,4 +26,10 @@ router.post('/account', function(req, res) {
   res.render('success',{masg:'Add success', url:'/account'});
 });
 
+router.get('/account/:id', (req, res) => {
+  let id = req.params.id;
+  db.get('accounts').remove({id:id}).write();
+  res.render('success',{masg:'Delete success', url:'/account'});
+})
+
 module.exports = router;

@@ -1,6 +1,14 @@
 {
   "accounts": [
     {
+      "id": "rbGw_w0ZQ",
+      "title": "paper",
+      "time": "2024-07-01",
+      "type": "-1",
+      "account": "6",
+      "remarks": "write paper"
+    },
+    {
       "id": "Qyc0im4dC",
       "title": "books",
       "time": "2024-07-01",
