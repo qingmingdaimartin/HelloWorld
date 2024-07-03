@@ -20,6 +20,15 @@ router.get('/account/create', function(req, res, next) {
   res.render('create');
 });
 
+//test
+router.get('/get', function(req, res, next) {
+  res.send('get is good');
+});
+router.get('/delete', function(req, res, next) {
+  res.send('Delete is also good');
+});
+
+
 router.post('/account', function(req, res) {
   let id = shortid.generate();
   db.get('accounts').unshift({id:id, ...req.body}).write();
