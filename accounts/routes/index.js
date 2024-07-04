@@ -9,36 +9,49 @@ const db = low(adapter)
 
 const shortid = require('shortid');
 
+const moment = require('moment');
+const AccountModel = require('../models/AccountModel');
+
+/* //test
+console.log(moment('2023-02-24').toDate())
+ */
 // accounts list
-router.get('/account', function(req, res, next) {
-  let accounts = db.get('accounts').value();
-  res.render('list', {accounts: accounts});
+router.get('/account', async function(req, res, next) {
+  try {
+    const data = await AccountModel.find().sort({time: -1}).exec();
+    console.log(data);
+  
+    res.render('list', {accounts: data, moment: moment});
+  } catch (err) {
+    res.status(500).send('read false');
+  }
 });
 
 // add record
 router.get('/account/create', function(req, res, next) {
   res.render('create');
+
+});
+router.post('/account', async (req, res) => {
+  try {
+    await AccountModel.create({
+      ...req.body,
+      time: moment(req.body.time).toDate()
+    });
+    res.render('success', { msg: 'Add success', url: '/account' });
+  } catch (err) {
+    res.status(500).send('Error adding account');
+  }
 });
 
-//test
-router.get('/get', function(req, res, next) {
-  res.send('get is good');
+router.get('/account/:id', async (req, res) => {
+  const id = req.params.id;
+  try { 
+    await AccountModel.deleteOne({ id: id });
+    res.render('success', { msg: 'Delete success', url: '/account' });
+  } catch (err) {
+    res.status(500).send('Error');
+  }
 });
-router.get('/delete', function(req, res, next) {
-  res.send('Delete is also good');
-});
-
-
-router.post('/account', function(req, res) {
-  let id = shortid.generate();
-  db.get('accounts').unshift({id:id, ...req.body}).write();
-  res.render('success',{masg:'Add success', url:'/account'});
-});
-
-router.get('/account/:id', (req, res) => {
-  let id = req.params.id;
-  db.get('accounts').remove({id:id}).write();
-  res.render('success',{masg:'Delete success', url:'/account'});
-})
 
 module.exports = router;

@@ -15,10 +15,10 @@ mongoose.connection.once('open', async () => {
 
     try {
         const data = await BookModel.create({
-            name: 'sanguo',
-            author: 'Ivaca',
-            price: 19.9,
-            is_hot: true
+            name: 'movies',
+            author: 'Yifan',
+            price: 29.9,
+            is_hot: false
         });
         console.log(data);
     } catch (err) {
